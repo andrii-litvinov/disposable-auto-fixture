@@ -8,10 +8,7 @@ namespace Primitives
         private readonly object[] values;
         private int valueIndex;
 
-        public InlineDataSpecimenBuilder(object[] values)
-        {
-            this.values = values;
-        }
+        public InlineDataSpecimenBuilder(object[] values) => this.values = values;
 
         public object Create(object request, ISpecimenContext context)
         {
