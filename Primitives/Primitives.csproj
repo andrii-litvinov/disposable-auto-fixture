@@ -5,9 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoFixture.AutoNSubstitute" Version="4.10.0" />
-        <PackageReference Include="AutoFixture.Xunit2" Version="4.10.0" />
-        <PackageReference Include="SimpleInjector" Version="4.4.2" />
+        <PackageReference Include="AutoFixture.AutoNSubstitute" Version="4.11.0" />
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.11.0" />
+        <PackageReference Include="SimpleInjector" Version="4.7.1" />
     </ItemGroup>
 
 </Project>
