@@ -4,34 +4,23 @@ using FluentAssertions;
 using SimpleInjector;
 using Xunit;
 
-namespace Tests
+namespace Tests.Regular
 {
-    public class RegularTestsWithCleanup : IAsyncLifetime
+    public class RegularTest
     {
-        public RegularTestsWithCleanup()
+        public RegularTest()
         {
             var container = new Container().RegisterApplicationServices();
             repository = container.GetInstance<IRepository<Invoice>>();
         }
 
         private readonly IRepository<Invoice> repository;
-        private Invoice invoice;
-
-        public async Task InitializeAsync()
-        {
-        }
-
-        public async Task DisposeAsync()
-        {
-            if (invoice != null)
-                await repository.Delete(invoice.Id);
-        }
 
         [Fact]
         public async Task ShouldUpdateInvoice()
         {
             // Arrange
-            invoice = new Invoice {Paid = false};
+            var invoice = new Invoice {Paid = false};
             await repository.Create(invoice);
             invoice.Paid = true;
 

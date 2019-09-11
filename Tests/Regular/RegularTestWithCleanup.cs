@@ -4,11 +4,11 @@ using FluentAssertions;
 using SimpleInjector;
 using Xunit;
 
-namespace Tests
+namespace Tests.Regular
 {
-    public class RegularTestWithInitAndCleanup : IAsyncLifetime
+    public class RegularTestsWithCleanup : IAsyncLifetime
     {
-        public RegularTestWithInitAndCleanup()
+        public RegularTestsWithCleanup()
         {
             var container = new Container().RegisterApplicationServices();
             repository = container.GetInstance<IRepository<Invoice>>();
@@ -19,8 +19,6 @@ namespace Tests
 
         public async Task InitializeAsync()
         {
-            invoice = new Invoice {Paid = false};
-            await repository.Create(invoice);
         }
 
         public async Task DisposeAsync()
@@ -33,6 +31,8 @@ namespace Tests
         public async Task ShouldUpdateInvoice()
         {
             // Arrange
+            invoice = new Invoice {Paid = false};
+            await repository.Create(invoice);
             invoice.Paid = true;
 
             // Act
