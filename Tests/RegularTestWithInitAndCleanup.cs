@@ -6,24 +6,35 @@ using Xunit;
 
 namespace Tests
 {
-    public class RegularTests
+    public class RegularTestWithInitAndCleanup : IAsyncLifetime
     {
-        public RegularTests()
+        public RegularTestWithInitAndCleanup()
         {
             var container = new Container().RegisterApplicationServices();
             repository = container.GetInstance<IRepository<Invoice>>();
         }
 
         private readonly IRepository<Invoice> repository;
+        private Invoice invoice;
+
+        public async Task InitializeAsync()
+        {
+            invoice = new Invoice {Paid = false};
+            await repository.Create(invoice);
+        }
+
+        public async Task DisposeAsync()
+        {
+            if (invoice != null)
+                await repository.Delete(invoice.Id);
+        }
 
         [Fact]
         public async Task ShouldUpdateInvoice()
         {
             // Arrange
-            var invoice = new Invoice {Paid = false};
-            await repository.Create(invoice);
             invoice.Paid = true;
-
+            
             // Act
             await repository.Update(invoice);
 

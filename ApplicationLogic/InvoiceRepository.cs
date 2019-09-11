@@ -18,5 +18,8 @@ namespace ApplicationLogic
 
         public async Task Update(Invoice entity) =>
             await collection.ReplaceOneAsync(invoice => invoice.Id == entity.Id, entity);
+
+        public async Task Delete(ObjectId id) =>
+            await collection.DeleteOneAsync(invoice => invoice.Id == id);
     }
 }

@@ -8,5 +8,6 @@ namespace ApplicationLogic
         Task<T> Find(ObjectId id);
         Task Create(T entity);
         Task Update(T entity);
+        Task Delete(ObjectId id);
     }
 }
