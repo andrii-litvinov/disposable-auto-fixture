@@ -34,7 +34,7 @@ namespace Tests
         {
             // Arrange
             invoice.Paid = true;
-            
+
             // Act
             await repository.Update(invoice);
 
