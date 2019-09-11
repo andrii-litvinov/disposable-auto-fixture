@@ -5,7 +5,7 @@ using MongoDB.Bson;
 using Primitives;
 using SimpleInjector;
 
-namespace Tests.Auto
+namespace Tests.Auto.Conventions
 {
     public class UnpaidInvoiceConventions : AutoDataAttribute
     {

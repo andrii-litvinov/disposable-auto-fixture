@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using ApplicationLogic;
 using FluentAssertions;
+using Tests.Auto.Conventions;
 using Xunit;
 
 namespace Tests.Auto
