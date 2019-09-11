@@ -39,7 +39,7 @@ namespace Primitives
         }
     }
 
-    internal class AsyncContext
+    internal static class AsyncContext
     {
         private static readonly ThreadLocal<HashSet<IAsyncLifetime>> lifetimes = new ThreadLocal<HashSet<IAsyncLifetime>>();
 
