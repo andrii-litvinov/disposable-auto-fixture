@@ -20,7 +20,7 @@ namespace Tests.Auto.Conventions
 
             fixture.Register(ObjectId.GenerateNewId);
             fixture.Customize<Invoice>(composer => composer
-                .With(invoice => invoice.Paid)
+                .Without(invoice => invoice.Paid)
             );
             
             return fixture;
