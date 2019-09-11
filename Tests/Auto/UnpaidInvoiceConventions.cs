@@ -7,9 +7,9 @@ using SimpleInjector;
 
 namespace Tests.Auto
 {
-    public class Conventions : AutoDataAttribute
+    public class UnpaidInvoiceConventions : AutoDataAttribute
     {
-        public Conventions() : base(ConfigureFixture)
+        public UnpaidInvoiceConventions() : base(ConfigureFixture)
         {
         }
 

@@ -40,8 +40,5 @@ namespace Primitives
             AsyncContext.Add(instance);
             return fixture;
         }
-
-        public static IFixture DefaultCustomization(this IFixture fixture, Container container) =>
-            fixture.Container(container).Async();
     }
 }
